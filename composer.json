@@ -1,5 +1,5 @@
 {
-    "name": "cloudraker/bootstrap",
+    "name": "cloudraker/boots",
     "description": "",
     "authors": [
         {
@@ -16,7 +16,7 @@
             "src/migrations"
         ],
         "psr-0": {
-            "Cloudraker\\Bootstrap": "src/"
+            "Cloudraker\\Boots": "src/"
         }
     },
     "minimum-stability": "dev"

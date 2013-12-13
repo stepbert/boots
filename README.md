@@ -11,28 +11,46 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 
 # Requirements
 
--Laravel 4
--Bower
+- Composer
+- Laravel 4
+- Bower
 
 # Installation
 
--Install Twitter Bootstrap
--Publish package assets
+- Install this package. In composer.json (of the root of your project) add the package:
 
--Create basic directories
+	{
+		...
+		"require": { 
+			...
+			"CloudRaker/boots": "dev-master"
+		},
+		"repositories": [{
+			"type": "git",
+			"url": "git@github.com:CloudRaker/boots.git"		
+		}],
+		...
+	}
+
+	$ composer update CloudRaker/boots
+	
+- Install Twitter Bootstrap
+- Publish package assets
+
+- Create basic directories
 
 	app/views/bootstrap/
 	
 	public/css/bootstrap/
 	public/js/bootstrap/
 
--Create your components
+- Create your components
 
 	app/views/bootstrap/myComponent.blade.php
 	public/js/bootstrap/myComponent.js
 	public/css/bootstrap/myComponent.less
 
--Import .less file
+- Import .less file
 
 	In your main LESS file:
 
