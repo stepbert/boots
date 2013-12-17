@@ -19,33 +19,48 @@
 	
 	<div id="boots">
 		<div class="sidebar">
+			
+			@foreach($groups as $groupname => $gr)
+				<h2>{{ $groupname }}</h2>
+				<ul>
+				@foreach($gr as $c)
+					<li>{{ $c['name'] }}</li>
+				@endforeach
+				</ul>
+			@endforeach
+			<?php /*
 			<ul>
 			@foreach($components as $c)		
 				<li>{{ $c['name'] }}</li>
 			@endforeach
 			</ul>
+			*/?>
 		</div>
 		<div class="main">
-			@foreach($components as $c)
-				<div class="component">
-					<h1>
-						{{ $c['name'] }} 
-						<span>
-							@if($c['page']['php'])
-								<a href="{{ URL::to("boots/{$c['name']}") }}">Standalone page</a>
-							@endif							
-						</span>
-					</h1>
-					<div class="content">
-						@include($c['view'])
+			@foreach($groups as $groupname => $gr)
+				
+				@foreach($gr as $c)
+					<div class="component">
+						<h1>
+							{{ $c['name'] }} 
+							<span>
+								@if($c['page']['php'])
+									<a href="{{ URL::to("boots/{$c['name']}") }}">Standalone page</a>
+								@endif							
+							</span>
+						</h1>
+						<div class="content">
+							@include($c['view'])
+						</div>
+						<?php /*
+						<div class="controls">
+							@if($c['controls']['php'])
+								@include("boots.controls.{$c['name']}")
+							@endif
+						</div> */ ?>					
 					</div>
-					<?php /*
-					<div class="controls">
-						@if($c['controls']['php'])
-							@include("boots.controls.{$c['name']}")
-						@endif
-					</div> */ ?>					
-				</div>
+				@endforeach
+				
 			@endforeach
 		</div>
 	</div>

@@ -49,6 +49,10 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 
 	$ php artisan asset:publish cloudraker/boots
 
+- Publish package configuration
+
+	$ php artisan config:publish cloudraker/boots
+
 - Create basic directories
 
 	app/views/boots/

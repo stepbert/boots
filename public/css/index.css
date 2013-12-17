@@ -2,9 +2,22 @@
   background-color: #E1E1E1;
   overflow: hidden;
 }
+#boots h1 {
+  font-size: 25px;
+}
+#boots h1 span {
+  font-size: 12px;
+}
+#boots h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
 #boots .sidebar {
   width: 250px;
   float: left;
+}
+#boots .sidebar ul {
+  margin-bottom: 20px;
 }
 #boots .main {
   float: left;
@@ -16,10 +29,4 @@
 }
 #boots .main .component .content {
   display: block;
-}
-#boots .main h1 {
-  font-size: 25px;
-}
-#boots .main h1 span {
-  font-size: 12px;
 }
