@@ -6,6 +6,7 @@
 	<meta name="description" lang="en" content="" />
 	<meta name="robots" content="index, follow" />
 	<!--link rel="shortcut icon" href="favicon.ico" /-->
+	{{ HTML::style('packages/cloudraker/boots/css/index.css') }}
 	{{ HTML::style('css/index.css') }}
 	@yield('css')
 </head>

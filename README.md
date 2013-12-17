@@ -47,7 +47,7 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 - Install Twitter Bootstrap
 - Publish package assets
 
-	...
+	$ php artisan asset:publish cloudraker/boots
 
 - Create basic directories
 
