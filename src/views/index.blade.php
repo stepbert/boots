@@ -1,15 +1,15 @@
-@extends('bootstrap::layouts.main')
+@extends('boots::layouts.main')
 
 @section('js')
 
 	@foreach($components as $c)
 
 		@if($c['js'])
-			<script type="text/javascript" src="{{ URL::asset('js/bootstrap/'.$c['name'].'.js') }}"></script>
+			<script type="text/javascript" src="{{ URL::asset('js/boots/'.$c['name'].'.js') }}"></script>
 		@endif
 
 		@if($c['controls']['js'])
-			<script type="text/javascript" src="{{ URL::asset('js/bootstrap/'.$c['name'].'-controls.js') }}"></script>
+			<script type="text/javascript" src="{{ URL::asset('js/boots/'.$c['name'].'-controls.js') }}"></script>
 		@endif
 
 	@endforeach
@@ -31,12 +31,12 @@
 			</div>
 			<div class="controls">
 				@if($c['controls']['php'])
-					@include("bootstrap.controls.{$c['name']}")
+					@include("boots.controls.{$c['name']}")
 				@endif
 			</div>
 			<div class="page">
 				@if($c['page']['php'])
-					<a href="{{ URL::to("bootstrap/{$c['name']}") }}">Standalone page</a>
+					<a href="{{ URL::to("boots/{$c['name']}") }}">Standalone page</a>
 				@endif
 			</div>
 		</div>

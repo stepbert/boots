@@ -1,4 +1,4 @@
-@extends('bootstrap::layouts.main')
+@extends('boots::layouts.main')
 
 @section('js')
 
@@ -9,19 +9,19 @@
 	--}}
 
 	@if($component['js'])
-		{{ HTML::script("js/bootstrap/{$component['name']}.js") }}
+		{{ HTML::script("js/boots/{$component['name']}.js") }}
 	@endif
 
 	@if($component['controls']['js'])
-		{{ HTML::script("js/bootstrap/{$component['name']}-controls.js") }}
+		{{ HTML::script("js/boots/{$component['name']}-controls.js") }}
 	@endif
 
 	@if($component['page']['js'])
-		{{ HTML::script("js/bootstrap/{$component['name']}-page.js") }}
+		{{ HTML::script("js/boots/{$component['name']}-page.js") }}
 	@endif
 
 	{{-- If needed overwrite page script declaration:
-	<script type="text/paperscript" src="{{ URL::asset("js/bootstrap/{$component['name']}-page.js") }}" canvas="myCanvas"></script>
+	<script type="text/paperscript" src="{{ URL::asset("js/boots/{$component['name']}-page.js") }}" canvas="myCanvas"></script>
 	 --}}
 
 @stop
@@ -34,7 +34,7 @@
 	</div>
 	<div class="controls">
 		@if($component['controls']['php'])
-			@include("bootstrap.controls.{$component['name']}")
+			@include("boots.controls.{$component['name']}")
 		@endif
 	</div>
 		

@@ -14,6 +14,7 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 - Composer
 - Laravel 4
 - Bower
+- Twitter Bootstrap (not required)
 
 # Installation
 
@@ -33,22 +34,33 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 	}
 
 	$ composer update CloudRaker/boots
+
+	In app/config/app.php
+
+		'providers' => array(
+			...
+			'Cloudraker\Boots\BootsServiceProvider',
+		)
+
+	$ composer dump-autoload
 	
 - Install Twitter Bootstrap
 - Publish package assets
 
+	...
+
 - Create basic directories
 
-	app/views/bootstrap/
+	app/views/boots/
 	
-	public/css/bootstrap/
-	public/js/bootstrap/
+	public/css/boots/
+	public/js/boots/
 
 - Create your components
 
-	app/views/bootstrap/myComponent.blade.php
-	public/js/bootstrap/myComponent.js
-	public/css/bootstrap/myComponent.less
+	app/views/boots/myComponent.blade.php
+	public/js/boots/myComponent.js
+	public/css/boots/myComponent.less
 
 - Import .less file
 
@@ -56,35 +68,37 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 
 		...
 
+- Visit da boooots: /boots
+
 # Customization
 
 ### Component controls
 
 	If you want to have button controls or some functionnality that is not included in your component you need to create the files:
 
-		app/views/bootstrap/controls/myComponent.blade.php
-		public/js/bootstrap/myComponent-controls.js
+		app/views/boots/controls/myComponent.blade.php
+		public/js/boots/myComponent-controls.js
 
 ### Component page overwrite
 
 	By default the View used to render a component is:
 
-		vendor/cloudraker/bootstrap/src/views/page.blade.php
+		vendor/cloudraker/boots/src/views/page.blade.php
 
 	If you want to overwrite the component page to customize it just create the files:
 
-		app/views/bootstrap/pages/myComponent.blade.php
-		public/js/bootstrap/myComponent-page.js
+		app/views/boots/pages/myComponent.blade.php
+		public/js/boots/myComponent-page.js
 
 # Exemples
 
 ### I'm creating a webpage and want to create the footer (module)
 
-	- Create the file app/views/bootstrap/footer.blade.php
+	- Create the file app/views/boots/footer.blade.php
 	- Insert your HTML content
 
 		<ul><li>footer></li></ul>
-	- Create public/css/bootstrap/footer.less file and import it in your main LESS file
+	- Create public/css/boots/footer.less file and import it in your main LESS file
 
 ### I'm creating a plugin and want to test it outside my website
 
