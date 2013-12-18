@@ -3,18 +3,8 @@
   overflow: hidden;
   padding: 0 15px;
 }
-#boots h1 {
-  font-size: 25px;
-}
-#boots h1 span {
-  font-size: 12px;
-}
-#boots h2 {
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-#boots .sidebar ul {
-  margin-bottom: 20px;
+#boots .sidebar {
+  margin-top: 20px;
 }
 #boots .main .component {
   clear: both;
