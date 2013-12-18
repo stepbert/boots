@@ -16,18 +16,31 @@
 @stop
 
 @section('body')
-	
-	<div id="boots">
-		<div class="sidebar">
-			
+
+<div id="boots" class="">
+	<div class="row">
+		
+		<div class="sidebar col-md-2">
+
+			<div class="navbar navbar-default">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">{{ Config::get('boots::boots.title') }}</a>
+				</div>
+			</div>
+				
 			@foreach($groups as $groupname => $gr)
-				<h2>{{ $groupname }}</h2>
-				<ul>
-				@foreach($gr as $c)
-					<li>{{ $c['name'] }}</li>
-				@endforeach
-				</ul>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h2>{{ $groupname }}</h2>
+					</div>
+					<div class="list-group">
+						@foreach($gr as $c)
+							<a class="list-group-item" href="#{{ $c['name'] }}">{{ $c['name'] }}</a>
+						@endforeach
+					</div>
+				</div>
 			@endforeach
+
 			<?php /*
 			<ul>
 			@foreach($components as $c)		
@@ -36,19 +49,20 @@
 			</ul>
 			*/?>
 		</div>
-		<div class="main">
+		<div class="main col-md-10 container">
 			@foreach($groups as $groupname => $gr)
 				
 				@foreach($gr as $c)
 					<div class="component">
-						<h1>
-							{{ $c['name'] }} 
-							<span>
+						<a name="{{ $c['name'] }}"></a>
+						<div class="page-header">
+							<h1>
+								{{ $c['name'] }}
 								@if($c['page']['php'])
-									<a href="{{ URL::to("boots/{$c['name']}") }}">Standalone page</a>
+									<small><a href="{{ URL::to("boots/{$c['name']}") }}">Standalone page</a></small>
 								@endif							
-							</span>
-						</h1>
+							</h1>
+						</div>						
 						<div class="content">
 							@include($c['view'])
 						</div>
@@ -63,6 +77,8 @@
 				
 			@endforeach
 		</div>
+
 	</div>
+</div>
 
 @stop

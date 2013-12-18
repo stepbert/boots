@@ -1,6 +1,7 @@
 #boots {
   background-color: #E1E1E1;
   overflow: hidden;
+  padding: 0 15px;
 }
 #boots h1 {
   font-size: 25px;
@@ -12,16 +13,8 @@
   font-size: 20px;
   margin-bottom: 5px;
 }
-#boots .sidebar {
-  width: 250px;
-  float: left;
-}
 #boots .sidebar ul {
   margin-bottom: 20px;
-}
-#boots .main {
-  float: left;
-  width: 900px;
 }
 #boots .main .component {
   clear: both;
