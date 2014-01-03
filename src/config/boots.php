@@ -2,7 +2,7 @@
 
 return array(
 
-	// Title of the tool
+	// Title on the header
 
 	'title' => 'CloudRaker Boots',
 
@@ -13,5 +13,17 @@ return array(
 		'UI' 			=> array(),
 		'Menus'		 	=> array(),		
 		'Pages' 		=> array(),
-	)
+	),
+
+	// Root path to assets (js and css directories)
+	// It allows to use Boots asset files outside of Laravel.
+	// If empty, by default it will link to "public/".	
+	
+	'path_assets'	=> '',
+
+	// Path to main CSS file.
+	// It allows to link to a CSS file outside of Laravel.
+
+	'file_css' 		=> 'css/index.css',
+
 );

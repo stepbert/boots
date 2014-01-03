@@ -9,7 +9,7 @@
 	<!--link rel="shortcut icon" href="favicon.ico" /-->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 	{{ HTML::style('packages/cloudraker/boots/css/index.css') }}
-	{{ HTML::style('css/index.css') }}
+	{{ HTML::style(Config::get('boots::boots.file_css')) }}
 	@yield('css')
 </head>
 <body>

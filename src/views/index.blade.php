@@ -1,15 +1,20 @@
 @extends('boots::layouts.main')
 
+<?php
+$path_to_assets = Config::get('boots::boots.path_assets');
+//dd($path_to_assets);
+?>
+
 @section('js')
 
 	@foreach($components as $c)
 
 		@if($c['js'])
-			<script type="text/javascript" src="{{ URL::asset('js/boots/'.$c['name'].'.js') }}"></script>
+			<script type="text/javascript" src="{{ URL::asset("{$path_to_assets}js/boots/{$c['name']}.js") }}"></script>
 		@endif
 
 		@if($c['controls']['js'])
-			<script type="text/javascript" src="{{ URL::asset('js/boots/'.$c['name'].'-controls.js') }}"></script>
+			<script type="text/javascript" src="{{ URL::asset("{$path_to_assets}js/boots/{$c['name']}-controls.js") }}"></script>
 		@endif
 
 	@endforeach

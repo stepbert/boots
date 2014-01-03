@@ -6,7 +6,7 @@
 	<meta name="description" lang="en" content="" />
 	<meta name="robots" content="index, follow" />
 	<!--link rel="shortcut icon" href="favicon.ico" /-->
-	{{ HTML::style('css/index.css') }}
+	{{ HTML::style(Config::get('boots::boots.file_css')) }}
 	@yield('css')
 </head>
 <body>

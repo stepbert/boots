@@ -3,21 +3,23 @@
 function detect_component($filename){
 
 	$base_path = base_path();
+	$path_to_assets = Config::get('boots::boots.path_assets');
+	//dd($path_to_assets);
 	$name = str_replace('.blade.php', '', $filename);
 
     return array(
     	'name' 		=> $name,
     	//'type' 		=> '',
     	'controls' 	=> array(
-    		'js' 	=> file_exists("{$base_path}/public/js/boots/{$name}-controls.js"),
+    		'js' 	=> file_exists("{$base_path}/public/{$path_to_assets}js/boots/{$name}-controls.js"),
     		'php' 	=> file_exists("{$base_path}/app/views/boots/controls/{$name}.blade.php")
     	),
     	'page' 		=> array(
-    		'js' 	=> file_exists("{$base_path}/public/js/boots/{$name}-page.js"),
+    		'js' 	=> file_exists("{$base_path}/public/{$path_to_assets}js/boots/{$name}-page.js"),
     		'php' 	=> file_exists("{$base_path}/app/views/boots/pages/{$name}.blade.php")
     	),
     	'view' 		=> "boots.{$name}",		            	
-    	'js' 		=> file_exists("{$base_path}/public/js/boots/{$name}.js")
+    	'js' 		=> file_exists("{$base_path}/public/{$path_to_assets}js/boots/{$name}.js")
     );
 }
 

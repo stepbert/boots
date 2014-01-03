@@ -118,3 +118,19 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 
 	- Create the blade file in your views
 	- Create the js file
+
+### I'm not using Laravel for my project, but I still want to use Boots
+
+	- Install Laravel and Boots at the root of your project:
+
+		www/*Drupal files*
+		www/laravel/*Laravel files*
+
+	- Put your asset and component files outside of Laravel:
+		
+		www/sites/all/themes/MyDrupalTheme/js/boots/*files*
+		www/sites/all/themes/MyDrupalTheme/css/boots/*files*
+
+	- In the config file of Boots change the Path to assets:
+
+		'path_assets' => '../../sites/all/themes/MyDrupalTheme/'
