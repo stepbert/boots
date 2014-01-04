@@ -20,18 +20,18 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 
 - Install this package. In composer.json (of the root of your project) add the package:
 
-	{
-		...
-		"require": { 
+		{
 			...
-			"CloudRaker/boots": "dev-master"
-		},
-		"repositories": [{
-			"type": "git",
-			"url": "git@github.com:CloudRaker/boots.git"		
-		}],
-		...
-	}
+			"require": { 
+				...
+				"CloudRaker/boots": "dev-master"
+			},
+			"repositories": [{
+				"type": "git",
+				"url": "git@github.com:CloudRaker/boots.git"		
+			}],
+			...
+		}
 
 	$ composer update CloudRaker/boots
 
@@ -46,28 +46,28 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 	
 - Install Twitter Bootstrap in public/components/
 
-	$ bower install bootstrap#3.0.3 -S
+		$ bower install bootstrap#3.0.3 -S
 
 - Publish package assets
 
-	$ php artisan asset:publish cloudraker/boots
+		$ php artisan asset:publish cloudraker/boots
 
 - Publish package configuration
 
-	$ php artisan config:publish cloudraker/boots
+		$ php artisan config:publish cloudraker/boots
 
 - Create basic directories
 
-	app/views/boots/
-	
-	public/css/boots/
-	public/js/boots/
+		app/views/boots/
+		
+		public/css/boots/
+		public/js/boots/
 
 - Create your components
 
-	app/views/boots/myComponent.blade.php
-	public/js/boots/myComponent.js
-	public/css/boots/myComponent.less
+		app/views/boots/myComponent.blade.php
+		public/js/boots/myComponent.js
+		public/css/boots/myComponent.less
 
 - Import .less file
 
