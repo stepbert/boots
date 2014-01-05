@@ -48,13 +48,14 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 
 		$ bower install bootstrap#3.0.3 -S
 
-- Publish package assets
+- Publish package assets and configuration files
 
 		$ php artisan asset:publish cloudraker/boots
-
-- Publish package configuration
-
 		$ php artisan config:publish cloudraker/boots
+
+# Getting started
+
+- If necessary, edit the boots config file (app/config/packages/cloudraker/boots/boots.php).
 
 - Create basic directories
 
@@ -63,7 +64,9 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 		public/css/boots/
 		public/js/boots/
 
-- Create your components
+		Note: The "css/boots" and "js/boots" could have been anywhere (see the config file).
+
+- Create your first component
 
 		app/views/boots/myComponent.blade.php
 		public/js/boots/myComponent.js
