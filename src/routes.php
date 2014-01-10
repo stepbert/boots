@@ -10,10 +10,12 @@ function detect_component($filename){
     return array(
     	'name' 		=> $name,
     	//'type' 		=> '',
+    	/*
     	'controls' 	=> array(
     		'js' 	=> file_exists("{$base_path}/public/{$path_to_assets}js/boots/{$name}-controls.js"),
     		'php' 	=> file_exists("{$base_path}/app/views/boots/controls/{$name}.blade.php")
     	),
+    	*/
     	'page' 		=> array(
     		'js' 	=> file_exists("{$base_path}/public/{$path_to_assets}js/boots/{$name}-page.js"),
     		'php' 	=> file_exists("{$base_path}/app/views/boots/pages/{$name}.blade.php")
@@ -23,20 +25,19 @@ function detect_component($filename){
     );
 }
 
-function load_components() {
+function load_components(){
 
 	//List components
 
 	$components = array();
 	//$base_path = base_path();
 
-	if ($handle = opendir(base_path().'/app/views/boots/')) {
+	if($handle = opendir(base_path().'/app/views/boots/')){
 
 		$invalid_files = array('.', '..', '.DS_Store', '._.DS_Store', 'controls', 'pages');
 	    
-	    while (false !== ($entry = readdir($handle))) {
+	    while(false !== ($entry = readdir($handle))){
 
-	        //if ($entry != "." && $entry != "..") {
 	    	if(!in_array($entry, $invalid_files)){
 	            //echo "$entry\n";
 
@@ -48,6 +49,32 @@ function load_components() {
 	    closedir($handle);
 	}
 	return $components;
+}
+
+function load_designs(){
+
+	$designs = array();
+
+	if($handle = opendir(base_path().'/public/'.Config::get('boots::boots.path_designs'))){
+
+		$invalid_files = array('.', '..', '.DS_Store', '._.DS_Store');
+	    
+	    while(false !== ($entry = readdir($handle))){
+
+	    	//dd(strpos($entry, '._'));
+
+	    	if(!in_array($entry, $invalid_files) && strpos($entry, '._') !== 0){
+	            //echo "$entry\n";
+
+	        	$name = str_replace('.jpg', '', strtolower($entry));
+
+	            $designs[] = $name;
+	        }
+	    }
+	    closedir($handle);
+	}
+
+	return $designs;
 }
 
 //todo Authentification
@@ -96,6 +123,29 @@ Route::group(array('before' => 'lazyauth', 'prefix' => 'boots'), function(){
 		return View::make('boots::index', compact('components', 'groups'));
 	});
 
+	Route::get('designs', function(){
+
+		$designs = load_designs();
+
+		return View::make('boots::designs', compact('designs'));
+	});
+
+	Route::get('designs/{item}', function($item){
+
+		//$designs = load_designs();
+		$filename = "{$item}.jpg";
+
+		if(!file_exists(base_path()."/public/".Config::get('boots::boots.path_designs')."/{$filename}")){
+			
+			App::abort(404);
+
+		}else{
+				
+			return View::make('boots::design-item')->with('design', $item);
+		}
+	});
+
+	/*
 	Route::get('admin', function(){
 
 		$components = load_components();
@@ -103,6 +153,7 @@ Route::group(array('before' => 'lazyauth', 'prefix' => 'boots'), function(){
 
 		//todo
 	});
+	*/
 
 	Route::get('{item}', function($item){
 
@@ -110,11 +161,11 @@ Route::group(array('before' => 'lazyauth', 'prefix' => 'boots'), function(){
 
 		// Verify if this component exist
 		if(!file_exists(base_path()."/app/views/boots/{$filename}")){
-
+			
 			App::abort(404);
 
 		}else{
-
+			
 			$component = detect_component($filename);
 			//dd($component);
 

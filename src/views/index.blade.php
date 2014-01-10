@@ -10,11 +10,7 @@ $path_to_assets = Config::get('boots::boots.path_assets');
 	@foreach($components as $c)
 
 		@if($c['js'])
-			<script type="text/javascript" src="{{ URL::asset("{$path_to_assets}js/boots/{$c['name']}.js") }}"></script>
-		@endif
-
-		@if($c['controls']['js'])
-			<script type="text/javascript" src="{{ URL::asset("{$path_to_assets}js/boots/{$c['name']}-controls.js") }}"></script>
+			{{ HTML::script("{$path_to_assets}js/boots/{$c['name']}.js") }}
 		@endif
 
 	@endforeach
@@ -30,6 +26,13 @@ $path_to_assets = Config::get('boots::boots.path_assets');
 			<div class="navbar navbar-default">
 				<div class="navbar-header">
 					<a href="#" class="navbar-brand">{{ Config::get('boots::boots.title') }}</a>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="list-group">
+					<a class="list-group-item active" href="{{ URL::to('boots') }}">Components</a>
+					<a class="list-group-item" href="{{ URL::to('boots/designs') }}">Designs</a>
 				</div>
 			</div>
 				
@@ -55,6 +58,12 @@ $path_to_assets = Config::get('boots::boots.path_assets');
 			*/?>
 		</div>
 		<div class="main col-md-10 container">
+
+		 	<?php
+		 	#
+		 	# Components
+		 	#
+		 	?>
 			@foreach($groups as $groupname => $gr)
 				
 				@foreach($gr as $c)

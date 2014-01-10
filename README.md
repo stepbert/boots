@@ -137,3 +137,10 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 	- In the config file of Boots change the Path to assets:
 
 		'path_assets' => '../../sites/all/themes/MyDrupalTheme/'
+
+### I want to easily see my designs
+
+	- Create JPG files of your PSD file.
+	- Put them in public/img/boots/designs/.
+	
+	Note: The files need to be in JPG format and the extension need to be lowercase (.jpg).

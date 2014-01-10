@@ -17,10 +17,6 @@ $path_to_assets = Config::get('boots::boots.path_assets');
 		{{ HTML::script("{$path_to_assets}js/boots/{$component['name']}.js") }}
 	@endif
 
-	@if($component['controls']['js'])
-		{{ HTML::script("{$path_to_assets}js/boots/{$component['name']}-controls.js") }}
-	@endif
-
 	@if($component['page']['js'])
 		{{ HTML::script("{$path_to_assets}js/boots/{$component['name']}-page.js") }}
 	@endif
@@ -37,10 +33,5 @@ $path_to_assets = Config::get('boots::boots.path_assets');
 	<div class="content">
 		@include($component['view'])
 	</div>
-	<div class="controls">
-		@if($component['controls']['php'])
-			@include("boots.controls.{$component['name']}")
-		@endif
-	</div>
-		
+			
 @stop

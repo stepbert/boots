@@ -26,4 +26,6 @@ return array(
 
 	'file_css' 		=> 'css/index.css',
 
+	'path_designs' 	=> 'img/boots/designs/',
+
 );

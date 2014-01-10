@@ -1,5 +1,8 @@
+ ✔ Remove controls concept @done (14-01-10 11:20)
+ ✔ Replace "script" by laravel shortcut @done (14-01-10 11:20)
+ ☐ Admin for applying settings to components
+
  ☐ bootstrap/page.blade.php: Utiliser blade pour insertion script
  ☐ command: Allowing to create a new item + page
  ☐ Remove control functionallities
  ☐ Bootstrap for /
- 
