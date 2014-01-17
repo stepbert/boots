@@ -28,4 +28,7 @@ return array(
 
 	'path_designs' 	=> 'img/boots/designs/',
 
+	//...
+
+	'display_checks' => true,
 );
