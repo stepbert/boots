@@ -14,5 +14,12 @@
 			<span class="badge pull-right">{{ count($designs) }}</span>
 			Designs
 		</a>
+		<?php 		
+		$class_active = $active == 'admin' ? 'active' : '';
+		?>
+		<a class="list-group-item {{ $class_active }}" href="{{ URL::to('boots/admin') }}">
+			
+			Admin
+		</a>
 	</div>
 </div>

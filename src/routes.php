@@ -147,15 +147,13 @@ Route::group(array('before' => 'lazyauth', 'prefix' => 'boots'), function(){
 		}
 	});
 
-	/*
 	Route::get('admin', function(){
 
 		$components = load_components();
-		//dd($components);
+		$designs 	= load_designs();
 
-		//todo
+		return View::make('boots::admin', compact('components', 'designs'));
 	});
-	*/
 
 	Route::get('{item}', function($item){
 
