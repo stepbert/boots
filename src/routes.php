@@ -147,6 +147,8 @@ Route::group(array('before' => 'lazyauth', 'prefix' => 'boots'), function(){
 		}
 	});
 
+	//Route::controller('admin', 'AdminController');
+
 	Route::get('admin', function(){
 
 		$components = load_components();

@@ -1,6 +1,6 @@
 <?php
 //namespace Cloudraker\Boots;
-
+die("!");
 class AdminController extends BaseController {
 	
 	public function getIndex(){
