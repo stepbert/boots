@@ -15,7 +15,7 @@
         "classmap": [
             "src/migrations",
             "src/controllers",
-            "src/models",
+            "src/models"
         ],
         "psr-0": {
             "Cloudraker\\Boots": "src/"
