@@ -147,8 +147,9 @@ Route::group(array('before' => 'lazyauth', 'prefix' => 'boots'), function(){
 		}
 	});
 
-	//Route::controller('admin', 'AdminController');
+	Route::controller('admin', 'AdminController');
 
+	/*
 	Route::get('admin', function(){
 
 		$components = load_components();
@@ -156,6 +157,7 @@ Route::group(array('before' => 'lazyauth', 'prefix' => 'boots'), function(){
 
 		return View::make('boots::admin', compact('components', 'designs'));
 	});
+	*/
 
 	Route::get('{item}', function($item){
 

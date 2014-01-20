@@ -31,6 +31,7 @@ return array(
 	//...
 
 	// Change if you need anything more...
+	// But if changed after data have been saved, the data could be corrupted.
 	'tags_status' => array(
 		0 => 'undefined',
 		1 => 'hold',
