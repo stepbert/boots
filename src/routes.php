@@ -25,6 +25,15 @@ function detect_component($filename){
     );
 }
 
+// Allow to sort designs and components
+function sort_by_name($a, $b){
+
+	if($a['name'] == $b['name']){
+		return 0;
+	}
+	return ($a['name'] < $b['name']) ? -1 : 1;
+}
+
 function load_components(){
 
 	//List components
@@ -55,6 +64,8 @@ function load_components(){
 
 	$components = $settings->apply('components', $components);
 
+	usort($components, 'sort_by_name');
+
 	return $components;
 }
 
@@ -84,6 +95,9 @@ function load_designs(){
 	$settings = new Setting();
 
 	$designs = $settings->apply('designs', $designs);
+
+	usort($designs, 'sort_by_name');
+	//dd($designs);
 
 	return $designs;
 }
