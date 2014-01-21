@@ -48,6 +48,13 @@ function load_components(){
 	    }
 	    closedir($handle);
 	}
+
+	//dd($components);
+
+	$settings = new Setting();
+
+	$components = $settings->apply('components', $components);
+
 	return $components;
 }
 
@@ -68,11 +75,15 @@ function load_designs(){
 
 	        	$name = str_replace('.jpg', '', strtolower($entry));
 
-	            $designs[] = $name;
+	            $designs[] = array('name' => $name);
 	        }
 	    }
 	    closedir($handle);
 	}
+
+	$settings = new Setting();
+
+	$designs = $settings->apply('designs', $designs);
 
 	return $designs;
 }
@@ -85,6 +96,8 @@ Route::group(array('before' => 'lazyauth', 'prefix' => 'boots'), function(){
 
 		$components = load_components();
 		$components2 = $components;
+
+		// Components into groups
 
 		$groups = array();
 
@@ -117,17 +130,17 @@ Route::group(array('before' => 'lazyauth', 'prefix' => 'boots'), function(){
 			$groups[''][] = $c;
 		}
 
-		//dd($components2);
-		//dd($groups);
+		$designs = load_designs();
 		
-		return View::make('boots::index', compact('components', 'groups'));
+		return View::make('boots::index', compact('components', 'groups', 'designs'));
 	});
 
 	Route::get('designs', function(){
 
-		$designs = load_designs();
+		$components = load_components();
+		$designs 	= load_designs();
 
-		return View::make('boots::designs', compact('designs'));
+		return View::make('boots::designs', compact('designs', 'components'));
 	});
 
 	Route::get('designs/{item}', function($item){
@@ -145,13 +158,15 @@ Route::group(array('before' => 'lazyauth', 'prefix' => 'boots'), function(){
 		}
 	});
 
+	Route::controller('admin', 'AdminController');
+
 	/*
 	Route::get('admin', function(){
 
 		$components = load_components();
-		//dd($components);
+		$designs 	= load_designs();
 
-		//todo
+		return View::make('boots::admin', compact('components', 'designs'));
 	});
 	*/
 

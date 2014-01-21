@@ -28,4 +28,24 @@ return array(
 
 	'path_designs' 	=> 'img/boots/designs/',
 
+	//...
+
+	// Change if you need anything more...
+	// But if changed after data have been saved, the data could be corrupted.
+	'tags_status' => array(
+		0 => 'undefined',
+		1 => 'hold',
+		2 => 'approved',
+		3 => 'completed'
+	),
+
+	// Not supposed to change.
+	'tags_colors' => array(
+		0 => 'Default',
+		1 => 'Primary',
+		2 => 'Success',
+		3 => 'Info',
+		4 => 'Warning',
+		5 => 'Danger'
+	)
 );
