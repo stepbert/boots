@@ -3,6 +3,8 @@
 <?php
 $path_to_assets = Config::get('boots::boots.path_assets');
 //dd($path_to_assets);
+$status = Config::get('boots::boots.tags_status');
+$colors = Config::get('boots::boots.tags_colors');
 ?>
 
 @section('js')
@@ -18,6 +20,14 @@ $path_to_assets = Config::get('boots::boots.path_assets');
 
 			@include('boots::components/sidebar-head')
 			@include('boots::components/sidebar-nav', array('active' => 'designs'))
+
+			<div class="panel panel-default">
+				<div class="list-group">
+					@foreach($designs as $item)
+						@include('boots::components/sidebar-item', array('item' => $item, 'status' => $status, 'colors' => $colors))
+					@endforeach
+				</div>
+			</div>
 			
 		</div>
 		<div class="main col-md-10 container">

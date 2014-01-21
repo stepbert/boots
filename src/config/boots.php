@@ -41,11 +41,11 @@ return array(
 
 	// Not supposed to change.
 	'tags_colors' => array(
-		0 => 'Default',
-		1 => 'Primary',
-		2 => 'Success',
-		3 => 'Info',
-		4 => 'Warning',
-		5 => 'Danger'
+		0 => 'default',
+		1 => 'primary',
+		2 => 'success',
+		3 => 'info',
+		4 => 'warning',
+		5 => 'danger'
 	)
 );

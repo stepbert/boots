@@ -3,6 +3,9 @@
 <?php
 $path_to_assets = Config::get('boots::boots.path_assets');
 //dd($path_to_assets);
+
+$status = Config::get('boots::boots.tags_status');
+$colors = Config::get('boots::boots.tags_colors');
 ?>
 
 @section('js')
@@ -33,7 +36,7 @@ $path_to_assets = Config::get('boots::boots.path_assets');
 					</div>
 					<div class="list-group">
 						@foreach($gr as $c)
-							<a class="list-group-item" href="#{{ $c['name'] }}">{{ $c['name'] }}</a>
+							@include('boots::components/sidebar-item', array('item' => $c, 'status' => $status, 'colors' => $colors))
 						@endforeach
 					</div>
 				</div>
