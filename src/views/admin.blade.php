@@ -2,11 +2,10 @@
 
 <?php
 $path_to_assets = Config::get('boots::boots.path_assets');
-//dd($path_to_assets);
 ?>
 
 @section('js')
-	
+
 @stop
 
 @section('body')
@@ -20,46 +19,66 @@ $path_to_assets = Config::get('boots::boots.path_assets');
 			@include('boots::components/sidebar-nav', array('active' => 'admin'))
 			
 		</div>
+
 		<div class="main col-md-10 container">
 
-			<form role="form">
+			@if(isset($message))
+				<div class="alert alert-success">{{ $message }}</div>
+			@endif
 
+			{{ Form::open() }}
+				
 				<h1>Designs</h1>
+				{{-- Form::text('nb_designs', count($designs)) --}}
 
 				<table class="table">
-					@foreach($designs as $design)
-						<tr>
-							<td>
-								{{ $design }}
-							</td>
-							<td>
-								<select name="tags">
-									@foreach(Config::get('boots::boots.tags_status') as $idtag => $tag)
-										<option value="{{ $idtag }}">{{ $tag }}</option>
-									@endforeach
-								</select>
-							</td>
-							<td>
-								<select name="tags">
-									@foreach(Config::get('boots::boots.tags_color') as $idtag => $tag)
-										<option value="{{ $idtag }}">{{ $tag }}</option>
-									@endforeach
-								</select>
-							</td>
-						</tr>
-					@endforeach
+				@foreach($designs as $design)
+					<?php
+					$name = $design['name'];
+					//dd($name);
+					?>
+					<tr>
+						<td>
+							{{ $name }}
+							{{ Form::hidden('designs[]', $name) }}
+						</td>
+						<td>
+							{{ Form::select("status[{$name}]", Config::get('boots::boots.tags_status'), intval($design['status'])) }}							
+						</td>
+						<td>
+							{{ Form::select("color[{$name}]", Config::get('boots::boots.tags_colors'), intval($design['color'])) }}							
+						</td>
+					</tr>
+				@endforeach
 				</table>
 
 				<h1>Components</h1>
 
-				...
+				<table class="table">
+				@foreach($components as $component)
+					<?php
+					//$component = $component_arr['name'];
+					//dd($component);
+					$name = $component['name'];
+					?>
+					<tr>
+						<td>
+							{{ $name }}
+							{{ Form::hidden('components[]', $name) }}
+						</td>
+						<td>
+							{{ Form::select("status[{$name}]", Config::get('boots::boots.tags_status'), intval($component['status'])) }}							
+						</td>
+						<td>
+							{{ Form::select("color[{$name}]", Config::get('boots::boots.tags_colors'), intval($component['color'])) }}							
+						</td>
+					</tr>
+				@endforeach
+				</table>
 
-				<div class="">
-					<button type="submit" class="btn btn-default">Save</button>
-				</div>
+				{{ Form::submit('Save', array('class' => 'btn btn-default')) }}
+			{{ Form::close() }}
 
-			</form>
-		 	
 		</div>
 
 	</div>

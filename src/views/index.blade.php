@@ -23,18 +23,8 @@ $path_to_assets = Config::get('boots::boots.path_assets');
 		
 		<div class="sidebar col-md-2">
 
-			<div class="navbar navbar-default">
-				<div class="navbar-header">
-					<a href="#" class="navbar-brand">{{ Config::get('boots::boots.title') }}</a>
-				</div>
-			</div>
-
-			<div class="panel panel-default">
-				<div class="list-group">
-					<a class="list-group-item active" href="{{ URL::to('boots') }}">Components</a>
-					<a class="list-group-item" href="{{ URL::to('boots/designs') }}">Designs</a>
-				</div>
-			</div>
+			@include('boots::components/sidebar-head')
+			@include('boots::components/sidebar-nav', array('active' => 'components'))
 				
 			@foreach($groups as $groupname => $gr)
 				<div class="panel panel-default">
