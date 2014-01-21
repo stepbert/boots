@@ -36,24 +36,20 @@ $path_to_assets = Config::get('boots::boots.path_assets');
 
 				<table class="table">
 				@foreach($designs as $design)
+					<?php
+					$name = $design['name'];
+					//dd($name);
+					?>
 					<tr>
 						<td>
-							{{ $design }}
-							{{ Form::text('designs[]', $design) }}
+							{{ $name }}
+							{{ Form::hidden('designs[]', $name) }}
 						</td>
 						<td>
-							<select name="status[{{ $design }}]">
-								@foreach(Config::get('boots::boots.tags_status') as $idx => $status)
-									<option value="{{ $idx }}">{{ $status }}</option>								
-								@endforeach
-							</select>
+							{{ Form::select("status[{$name}]", Config::get('boots::boots.tags_status'), intval($design['status'])) }}							
 						</td>
 						<td>
-							<select name="colors[{{ $design }}]">
-								@foreach(Config::get('boots::boots.tags_colors') as $idx => $colors)
-									<option value="{{ $idx }}">{{ $colors }}</option>								
-								@endforeach
-							</select>
+							{{ Form::select("color[{$name}]", Config::get('boots::boots.tags_colors'), intval($design['color'])) }}							
 						</td>
 					</tr>
 				@endforeach
@@ -62,29 +58,22 @@ $path_to_assets = Config::get('boots::boots.path_assets');
 				<h1>Components</h1>
 
 				<table class="table">
-				@foreach($components as $component_arr)
+				@foreach($components as $component)
 					<?php
-					$component = $component_arr['name'];
+					//$component = $component_arr['name'];
 					//dd($component);
+					$name = $component['name'];
 					?>
 					<tr>
 						<td>
-							{{ $component }}
-							{{ Form::text('components[]', $component) }}
+							{{ $name }}
+							{{ Form::hidden('components[]', $name) }}
 						</td>
 						<td>
-							<select name="status[{{ $component }}]">
-								@foreach(Config::get('boots::boots.tags_status') as $idx => $status)
-									<option value="{{ $idx }}">{{ $status }}</option>								
-								@endforeach
-							</select>
+							{{ Form::select("status[{$name}]", Config::get('boots::boots.tags_status'), intval($component['status'])) }}							
 						</td>
 						<td>
-							<select name="colors[{{ $component }}]">
-								@foreach(Config::get('boots::boots.tags_colors') as $idx => $colors)
-									<option value="{{ $idx }}">{{ $colors }}</option>								
-								@endforeach
-							</select>
+							{{ Form::select("color[{$name}]", Config::get('boots::boots.tags_colors'), intval($component['color'])) }}							
 						</td>
 					</tr>
 				@endforeach

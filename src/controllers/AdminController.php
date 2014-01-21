@@ -5,15 +5,11 @@ class AdminController extends BaseController {
 	
 	public function getIndex(){
 
+		//$settings = new Setting();
+
 		$components = load_components();
 		$designs 	= load_designs();
-
-		$settings = new Setting();
-		$settings->apply('design', $designs);
-		//$data = json_decode(File::get(storage_path().'/settings.json'));
-
-		dd($data);
-
+		
 		return View::make('boots::admin', compact('components', 'designs'));
 	}
 
@@ -23,13 +19,15 @@ class AdminController extends BaseController {
 
 		// Load settings
 
-		$data = File::get(storage_path().'/settings.json');
-		dd($data);
+		//$settings = new Setting();
+		//$settings = $settings->getSettings();
+		//$data = File::get(storage_path().'/settings.json');
+		//dd($data);
 
 		// HTML
 		
 		$status = Input::get('status');
-		$colors = Input::get('colors');
+		$color = Input::get('color');
 
 		// Designs
 
@@ -40,7 +38,7 @@ class AdminController extends BaseController {
 
 			$designs[$name] = array(
 				'status' 	=> $status[$name],
-				'color' 	=> $colors[$name]
+				'color' 	=> $color[$name]
 			);
 		}
 
@@ -53,7 +51,7 @@ class AdminController extends BaseController {
 
 			$components[$name] = array(
 				'status' 	=> $status[$name],
-				'color' 	=> $colors[$name]
+				'color' 	=> $color[$name]
 			);
 		}
 		
@@ -64,7 +62,9 @@ class AdminController extends BaseController {
 
 		//dd(storage_path().'/settings.json');
 
-		File::put(storage_path().'/settings.json', json_encode($data));
+		//File::put(storage_path().'/settings.json', json_encode($data));
+		$settings = new Setting();
+		$settings->save($data);
 
 		$components = load_components();
 		$designs 	= load_designs();

@@ -32,13 +32,12 @@ $path_to_assets = Config::get('boots::boots.path_assets');
 		 		<h1>Designs</h1>
 
 		 		<div class="row">
-			 		
 		 			@foreach($designs as $d)
 
 		 				<div class="col-xs-6 col-md-3">
-			 				<a href="{{ URL::to("boots/designs/{$d}") }}" class="thumbnail">
-			 					<div class="caption">{{ $d }}</div>
-						      	<img src="{{ URL::asset(Config::get('boots::boots.path_designs').$d.'.jpg') }}">
+			 				<a href="{{ URL::to("boots/designs/{$d['name']}") }}" class="thumbnail">
+			 					<div class="caption">{{ $d['name'] }}</div>
+						      	<img src="{{ URL::asset(Config::get('boots::boots.path_designs').$d['name'].'.jpg') }}">
 						    </a>
 						</div>
 

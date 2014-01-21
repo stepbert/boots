@@ -48,6 +48,13 @@ function load_components(){
 	    }
 	    closedir($handle);
 	}
+
+	//dd($components);
+
+	$settings = new Setting();
+
+	$components = $settings->apply('components', $components);
+
 	return $components;
 }
 
@@ -68,11 +75,15 @@ function load_designs(){
 
 	        	$name = str_replace('.jpg', '', strtolower($entry));
 
-	            $designs[] = $name;
+	            $designs[] = array('name' => $name);
 	        }
 	    }
 	    closedir($handle);
 	}
+
+	$settings = new Setting();
+
+	$designs = $settings->apply('designs', $designs);
 
 	return $designs;
 }
