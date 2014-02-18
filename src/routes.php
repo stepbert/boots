@@ -203,7 +203,7 @@ Route::group(array('before' => 'lazyauth', 'prefix' => 'boots'), function(){
 			//if(file_exists(base_path()."/app/views/boots/pages/{$filename}")){
 			if($component['page']['php']){
 
-				return View::make("boots.pages.{$item}", compact('component'));			
+				return View::make("boots.pages.{$item}", compact('component'));
 			
 			}else{
 
