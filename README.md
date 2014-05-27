@@ -102,12 +102,12 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 
 # Exemples
 
-### I'm creating a webpage and want to create the footer (module)
+### I'm creating a webpage and want to create the footer (component)
 
 	- Create the file app/views/boots/footer.blade.php
 	- Insert your HTML content
 
-		<ul><li>footer></li></ul>
+		<ul><li>footer</li></ul>
 	- Create public/css/boots/footer.less file and import it in your main LESS file
 
 ### I'm creating a plugin and want to test it outside my website

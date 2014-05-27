@@ -48,16 +48,17 @@ function load_components(){
 	    while(false !== ($entry = readdir($handle))){
 
 	    	if(!in_array($entry, $invalid_files)){
-	            //echo "$entry\n";
 
-	        	$name = str_replace('.blade.php', '', $entry);
+	    		if(strpos($entry, '._') !== 0){ //File starting with ."_"
 
-	            $components[] = detect_component($entry);
+	    			$name = str_replace('.blade.php', '', $entry);
+
+	            	$components[] = detect_component($entry);
+	    		}	        	
 	        }
 	    }
 	    closedir($handle);
 	}
-
 	//dd($components);
 
 	$settings = new Setting();
