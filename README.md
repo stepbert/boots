@@ -72,11 +72,29 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 		public/js/boots/myComponent.js
 		public/css/boots/myComponent.less
 
-- Import .less file
+- Import your component .less file
 
 	In your main LESS file:
 
-		...
+		@import "boots/myComponent.less";
+
+- Configure Grunt to build your main less file into	public/css/index.css:
+
+	grunt.initConfig({
+		less: {
+			production: {
+				options: {
+					paths: ['public/css'],
+					cleancss: true
+				},
+				files: {
+					'public/css/build.min.css': 'public/css/main.less'
+				}			
+			}
+		}
+	});
+
+	Note: The CSS filename can be changed in the app/config/packages/cloudraker/boots/boots.php file.
 
 - Visit da boooots: /boots
 
