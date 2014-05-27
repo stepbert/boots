@@ -52,6 +52,33 @@ $colors = Config::get('boots::boots.tags_colors');
 		</div>
 		<div class="main col-md-10 container">
 
+			<?php
+			#
+			# Intro
+			#
+			?>
+			<div  class="page-header"><h1 id="introduction">Introduction</h1></div>
+			<p>This microsite regroups all of the components for the {{{ Config::get('boots::boots.title') }}} Styleguide.</p>
+			<p>Source files can be found here: <a href="{{{ URL::asset('files/sources.zip') }}}">sources.zip</a></p>
+			<!--<p>The <a href="/styles">styles</a> section regroup all of the generic styling for the site.</p>
+			<p>The <a href="/components">components</a> section regroup all of the components with functionnal demo when needed.</p>
+			-->
+
+			<?php /*
+			<div  class="page-header"><h1 id="">Compiled files</h1></div>
+			<p>Compiled files can be found here:</p>
+			<ul>
+				<li><a href="/js/main.js">main.js</a></li>
+				<li><a href="/css/cn.css">cn.css</a></li>
+			</ul>			
+
+			<div  class="page-header"><h1 id="">Source files</h1></div>
+			<p>Source files can be found here:</p>
+			<ul>
+				<li><a href="{{{ URL::asset('files/sources.zip') }}}">sources.zip</a></li>	
+			</ul>
+			*/ ?>
+
 		 	<?php
 		 	#
 		 	# Components
