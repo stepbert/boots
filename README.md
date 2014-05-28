@@ -44,9 +44,9 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 
 	$ composer dump-autoload
 	
-- Install Twitter Bootstrap in public/components/
+- Install Twitter Bootstrap in public/bower_components/
 
-		$ bower install bootstrap#3.0.3 -S
+		$ bower install bootstrap#3.1.1 -S
 
 - Publish package assets and configuration files
 
@@ -63,6 +63,8 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 		
 		public/css/boots/
 		public/js/boots/
+
+		public/img/boots/designs/
 
 		Note: The "css/boots" and "js/boots" could have been anywhere (see the config file).
 
