@@ -1,13 +1,13 @@
 boots
 =====
 
-Laravel 4 package allowing to rapidly create modules/plugins and encapsulate them in separate files.
+Laravel 4 package allowing to create a Style guide composed of components or plugins seperated and encapsulated.
 
 # What can we do with it?
 
-- Create an HTML snippet.
-- Test a javascript plugin.
-- Create a demo page for a module/plugin.
+- Separate and encapsulate components
+- Create a javascript plugin
+- Create a page layout containing components
 
 # Requirements
 
@@ -122,13 +122,21 @@ Laravel 4 package allowing to rapidly create modules/plugins and encapsulate the
 
 # Exemples
 
-### I'm creating a webpage and want to create the footer (component)
+### I'm creating a webpage and want to create a footer component
 
 	- Create the file app/views/boots/footer.blade.php
 	- Insert your HTML content
 
 		<ul><li>footer</li></ul>
 	- Create public/css/boots/footer.less file and import it in your main LESS file
+
+### I want to create a page layout containing components
+
+	- Create an empty file app/views/boots/myLayout.blade.php
+	- Create the file app/views/boots/pages/myLayout.blade.php allowing to overwrite the base page of Boots (vendor/cloudraker/boots/src/views/page.blade.php)
+	- Include a component in the layout:
+
+		@include('boots.footer')
 
 ### I'm creating a plugin and want to test it outside my website
 

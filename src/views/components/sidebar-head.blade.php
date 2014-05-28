@@ -1,5 +1,5 @@
 <div class="navbar navbar-default">
 	<div class="navbar-header">
-		<a href="#" class="navbar-brand">{{ Config::get('boots::boots.title') }}</a>
+		<a href="{{ URL::to('boots') }}" class="navbar-brand">{{ Config::get('boots::boots.title') }}</a>
 	</div>
 </div>
