@@ -2,6 +2,7 @@
 
 <?php
 $path_to_assets = Config::get('boots::boots.path_assets');
+$path_to_css_file = $path_to_assets.Config::get('boots::boots.file_css');
 //dd($path_to_assets);
 
 $status = Config::get('boots::boots.tags_status');
@@ -51,6 +52,30 @@ $colors = Config::get('boots::boots.tags_colors');
 			*/?>
 		</div>
 		<div class="main col-md-10 container">
+
+			<?php
+			#
+			# Intro
+			#
+			?>
+			<div  class="page-header"><h1 id="introduction">Introduction</h1></div>
+			<p>This microsite regroups all of the components for the {{{ Config::get('boots::boots.title') }}} Styleguide.</p>
+			<!--<p>The <a href="/styles">styles</a> section regroup all of the generic styling for the site.</p>
+			<p>The <a href="/components">components</a> section regroup all of the components with functionnal demo when needed.</p>
+			-->
+
+			<h3>Compiled files</h3>
+			<p>Compiled files can be found here:</p>
+			<ul>
+				<?php /*<li><a href="{{{ URL::asset('js/main.js') }}}">main.js</a></li>*/ ?>
+				<li><a href="{{{ $path_to_css_file }}}">{{{ Config::get('boots::boots.file_css') }}}</a></li>
+			</ul>			
+
+			<h3>Source files</h3>
+			<p>Complete source files can be found here:</p>
+			<ul>
+				<li><a href="{{{ URL::asset('files/sources.zip') }}}">sources.zip</a></li>	
+			</ul>
 
 		 	<?php
 		 	#
