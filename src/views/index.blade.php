@@ -95,7 +95,7 @@ $colors = Config::get('boots::boots.tags_colors');
 								@endif							
 							</h1>
 						</div>						
-						<div class="content" style="position: relative;">
+						<div class="content" style="position: relative; min-height:100px; overflow:hidden;">
 							@include($c['view'])
 						</div>
 						<?php /*
