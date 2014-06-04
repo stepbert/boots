@@ -3,6 +3,7 @@
 <?php
 $path_to_assets = Config::get('boots::boots.path_assets');
 $path_to_css_file = $path_to_assets.Config::get('boots::boots.file_css');
+$path_to_js_file = $path_to_assets.Config::get('boots::boots.file_js');
 //dd($path_to_assets);
 
 $status = Config::get('boots::boots.tags_status');
@@ -68,6 +69,7 @@ $colors = Config::get('boots::boots.tags_colors');
 			<p>Compiled files can be found here:</p>
 			<ul>
 				<?php /*<li><a href="{{{ URL::asset('js/main.js') }}}">main.js</a></li>*/ ?>
+				<li><a href="{{{ $path_to_js_file }}}">{{{ Config::get('boots::boots.file_js') }}}</a></li>
 				<li><a href="{{{ $path_to_css_file }}}">{{{ Config::get('boots::boots.file_css') }}}</a></li>
 			</ul>			
 
