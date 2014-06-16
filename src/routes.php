@@ -146,8 +146,26 @@ Route::group(array('before' => 'lazyauth', 'prefix' => 'boots'), function(){
 		}
 
 		$designs = load_designs();
+
+		// Package info
+
+		$packagejson_filename = storage_path().'/../../package.json';
+		$packagejson = array();
+
+		if(file_exists($packagejson_filename)){
+			$packagejson = json_decode(file_get_contents($packagejson_filename), true);
+		}
+
+		// Version info
+
+		$versionjson_filename = storage_path().'/version.json';
+		$versionjson = array();
+
+		if(file_exists($versionjson_filename)){
+			$versionjson = json_decode(file_get_contents($versionjson_filename), true);
+		}
 		
-		return View::make('boots::index', compact('components', 'groups', 'designs'));
+		return View::make('boots::index', compact('components', 'groups', 'designs', 'packagejson', 'versionjson'));
 	});
 
 	Route::get('designs', function(){
