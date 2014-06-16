@@ -91,11 +91,6 @@ $colors = Config::get('boots::boots.tags_colors');
 				<li><a href="{{{ URL::asset('files/sources.zip') }}}">sources.zip</a></li>	
 			</ul>
 
-			<h3>Infos</h3>
-			<ul>
-				<li>Current version: </li>
-			</ul>
-
 		 	<?php
 		 	#
 		 	# Components
