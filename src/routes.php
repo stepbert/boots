@@ -20,6 +20,7 @@ function detect_component($filename){
     		'js' 	=> file_exists("{$base_path}/public/{$path_to_assets}js/boots/{$name}-page.js"),
     		'php' 	=> file_exists("{$base_path}/app/views/boots/pages/{$name}.blade.php")
     	),
+    	'doc' 		=> file_exists("{$base_path}/app/views/boots/docs/{$name}.md"),
     	'view' 		=> "boots.{$name}",		            	
     	'js' 		=> file_exists("{$base_path}/public/{$path_to_assets}js/boots/{$name}.js")
     );
@@ -43,7 +44,7 @@ function load_components(){
 
 	if($handle = opendir(base_path().'/app/views/boots/')){
 
-		$invalid_files = array('.', '..', '.DS_Store', '._.DS_Store', 'controls', 'pages');
+		$invalid_files = array('.', '..', '.DS_Store', '._.DS_Store', 'controls', 'pages', 'docs');
 	    
 	    while(false !== ($entry = readdir($handle))){
 

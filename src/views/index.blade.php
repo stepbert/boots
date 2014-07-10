@@ -1,6 +1,8 @@
 @extends('boots::layouts.main')
 
 <?php
+$base_path = base_path();
+
 $path_to_assets = Config::get('boots::boots.path_assets');
 $path_to_css_file = $path_to_assets.Config::get('boots::boots.file_css');
 $path_to_js_file = $path_to_assets.Config::get('boots::boots.file_js');
@@ -108,6 +110,11 @@ $colors = Config::get('boots::boots.tags_colors');
 									<small><a href="{{ URL::to("boots/{$c['name']}") }}">Standalone page</a></small>
 								@endif							
 							</h1>
+							@if($c['doc'])
+								<div class="well well-sm">
+									<?php echo nl2br(file_get_contents(app_path()."/views/boots/docs/{$c['name']}.md")); ?>
+								</div>
+							@endif
 						</div>						
 						<div class="content" style="position: relative; min-height:100px; overflow:hidden;">
 							@include($c['view'])
