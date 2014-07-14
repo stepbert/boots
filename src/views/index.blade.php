@@ -112,7 +112,9 @@ $colors = Config::get('boots::boots.tags_colors');
 							</h1>
 							@if($c['doc'])
 								<div class="well well-sm">
-									<?php echo nl2br(file_get_contents(app_path()."/views/boots/docs/{$c['name']}.md")); ?>
+									<pre>
+										<?php echo file_get_contents(app_path()."/views/boots/docs/{$c['name']}.md"); ?>
+									</pre>
 								</div>
 							@endif
 						</div>						
