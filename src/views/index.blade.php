@@ -113,7 +113,10 @@ $colors = Config::get('boots::boots.tags_colors');
 							@if($c['doc'])
 								<div class="well well-sm">
 									<pre>
-										<?php echo file_get_contents(app_path()."/views/boots/docs/{$c['name']}.md"); ?>
+										<?php 
+										//note Strangely if I dont put a \n it will have tabs in the first row...
+										echo "\n".file_get_contents(app_path()."/views/boots/docs/{$c['name']}.md"); 
+										?>
 									</pre>
 								</div>
 							@endif
