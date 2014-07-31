@@ -1,7 +1,36 @@
 boots
 =====
 
-Laravel 4 package allowing to create a Style guide composed of components or plugins seperated and encapsulated.
+Laravel 4 package allowing to create a style guide separated in components and allowing to define design standards for a website.
+
+Each component is decoupled from the page layout and is defined by:
+
+- HTML markup
+- CSS style
+- Javascript
+
+# Benefits
+
+- Code organisation and modularity
+- Quickly create a prototype
+- Easy to test in different layouts
+- Easy to maintain
+- Clients and managers approbation
+- Workflow in a team
+- Shared vocabulary
+- Useful reference
+- Separation with the backend
+- Documenting each component
+- Integrates directly into project
+- File based
+
+# Features
+
+- Annotation along each component (documentation)
+- The components don't need to be used only with the Laravel Blade templating system
+- Integration with Grunt
+- Tagging system allowing to set a status to a component (ex.: approved, completed, in-progress)
+- List visual design
 
 # What can we do with it?
 
@@ -11,10 +40,34 @@ Laravel 4 package allowing to create a Style guide composed of components or plu
 
 # Requirements
 
-- Composer
-- Laravel 4
+- PHP
+	- Composer
+	- Laravel 4
 - Bower
-- Twitter Bootstrap (not required)
+	- Twitter Bootstrap (not required)
+- Grunt (not required)
+	- LESS (not required)
+
+# Concept
+
+Boots is file based.
+
+### Basic component
+
+- app/views/boots/myComponent.blade.php (HTML markup)
+- public/js/boots/myComponent.js
+- public/css/boots/myComponent.less
+
+### Layout containing various components
+
+- app/views/boots/myComponent1.blade.php
+- app/views/boots/myComponent2.blade.php
+- app/views/boots/pages/myComponent1.blade.php
+
+### Document a component
+
+- app/views/boots/myComponent.blade.php
+- app/views/boots/docs/myComponent.md
 
 # Installation
 
