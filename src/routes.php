@@ -44,7 +44,7 @@ function load_components(){
 
 	if($handle = opendir(base_path().'/app/views/boots/')){
 
-		$invalid_files = array('.', '..', '.DS_Store', '._.DS_Store', 'controls', 'pages', 'docs');
+		$invalid_files = array('.', '..', '.DS_Store', '._.DS_Store', 'controls', 'pages', 'docs', 'layouts');
 	    
 	    while(false !== ($entry = readdir($handle))){
 
